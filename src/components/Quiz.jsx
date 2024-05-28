@@ -24,6 +24,7 @@ const Quiz = () => {
 
   const handleSelectedAnswer = useCallback(
     function handleSelectedAnswer(selectedAnswer) {
+      console.log("Handle fun called");
       setAnswerState("answered");
       setActiveQuestion((prevAnswer) => {
         return [...prevAnswer, selectedAnswer];
