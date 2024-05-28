@@ -1,5 +1,6 @@
 import QuestionTimer from "./QuizTimer";
 import Answers from "./Answer";
+import Scoreboard from "./Scoreboard";
 
 const Question = ({
   questionText,
@@ -10,21 +11,26 @@ const Question = ({
   onSkipAnswer,
 }) => {
   return (
-    <div id="question">
-      {/* NOTES::
+    <>
+      <div className="header_question">
+        <Scoreboard />
+        <QuestionTimer timeout={10000} onTimeOut={onSkipAnswer} />
+      </div>
+      <div id="question">
+        {/* NOTES::
              KEY USE CASES OTHER THAN IN MAPPING
              -- keys can be used to reset the component by react.(unmount and remount)
              */}
 
-      <QuestionTimer timeout={10000} onTimeOut={onSkipAnswer} />
-      <h2>{questionText}</h2>
-      <Answers
-        selectedAnswer={selectedAnswer}
-        answer={answer}
-        onSelect={onSelect}
-        answerState={answerState}
-      />
-    </div>
+        <h2>{questionText}</h2>
+        <Answers
+          selectedAnswer={selectedAnswer}
+          answer={answer}
+          onSelect={onSelect}
+          answerState={answerState}
+        />
+      </div>
+    </>
   );
 };
 

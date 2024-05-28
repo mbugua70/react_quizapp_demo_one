@@ -1,5 +1,9 @@
 import { useState, useCallback, useRef } from "react";
 import CompltedImage from "../assets/quiz-complete.png";
+
+// animate package
+import 'animate.css';
+
 // data (question)
 import QUESTIONS from "../question";
 import QuestionTimer from "./QuizTimer";
@@ -56,7 +60,7 @@ const Quiz = () => {
 
   return (
     <>
-      <div id="quiz">
+      <div id="quiz" className="">
         <Question
           key={activeQuestionIndex}
           questionText={QUESTIONS[activeQuestionIndex].text}
