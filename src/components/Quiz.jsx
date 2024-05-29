@@ -1,14 +1,14 @@
 import { useState, useCallback, useRef } from "react";
-import CompltedImage from "../assets/quiz-complete.png";
 
 // animate package
-import 'animate.css';
+import "animate.css";
 
 // data (question)
 import QUESTIONS from "../question";
 import QuestionTimer from "./QuizTimer";
 import Answers from "./Answer";
 import Question from "./Question";
+import Summary from "./Summary";
 
 const Quiz = () => {
   // useState for styling answered question
@@ -53,12 +53,7 @@ const Quiz = () => {
   );
 
   if (quizCompleted) {
-    return (
-      <div id="summary">
-        <img src={CompltedImage} alt="Completed quiz" />
-        <h2>Quiz Completed</h2>
-      </div>
-    );
+    return <Summary userAnswers={activeQuestion} />;
   }
 
   return (
