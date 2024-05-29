@@ -25,7 +25,11 @@ const Answers = ({ onSelect, answer, selectedAnswer, answerState }) => {
         }
         return (
           <li className="answer" key={answer}>
-            <button onClick={() => onSelect(answer)} className={cssClass}>
+            <button
+              onClick={() => onSelect(answer)}
+              className={cssClass}
+              disabled={answerState !== ""}
+            >
               {shuffleQuestions.current.indexOf(answer) + 1}. {answer}
             </button>
           </li>

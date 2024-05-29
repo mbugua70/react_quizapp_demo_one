@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const QuestionTimer = ({timeout, onTimeOut}) => {
+const QuestionTimer = ({ timeout, onTimeOut, mode }) => {
   const [remainingTime, setRemainingTime] = useState(timeout);
 
   useEffect(() => {
@@ -29,12 +29,17 @@ const QuestionTimer = ({timeout, onTimeOut}) => {
   let countDown = remainingTime / 1000;
 
   return (
-    //  <progress value={remainingTime} id="question-time" max={timeout}/>
     <>
       <h2>Time</h2>
-      <p>{remainingTime > 0 ? countDown | 0 : "0"}</p>
+      {/* <p>{remainingTime > 0 ? countDown | 0 : "0"}</p> */}
+      <progress
+        value={remainingTime}
+        id="question-time"
+        max={timeout}
+        className={mode}
+      />
     </>
   );
-}
+};
 
 export default QuestionTimer;
